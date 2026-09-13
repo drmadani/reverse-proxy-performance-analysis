@@ -1,0 +1,30 @@
+# ===== Hasil Pengujian (tidak di-commit karena variatif) =====
+results/*
+!results/.gitkeep
+!results/scenario1/.gitkeep
+!results/scenario2/.gitkeep
+!results/scenario3/.gitkeep
+
+# ===== Log & Cache =====
+*.log
+*.tmp
+*.cache
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor =====
+.vscode/
+.idea/
+*.swp
+*~
+
+# ===== File Besar / Arsip =====
+*.zip
+*.tar.gz
+*.7z
+
+# ===== Environment (kalau ada) =====
+.env
+.env.local
