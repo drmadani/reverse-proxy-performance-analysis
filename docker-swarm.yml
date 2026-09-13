@@ -1,0 +1,81 @@
+# Initialize Docker Swarm
+docker swarm init
+
+# Deploy the stack
+docker stack deploy -c docker-stack.yml web-perf-test
+
+# Check services
+docker service ls
+
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./app:/usr/share/nginx/html
+    networks:
+      - webnet
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+      restart_policy:
+        condition: any
+
+  apache:
+    image: httpd:latest
+    ports:
+      - "8082:80"
+    volumes:
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./app:/usr/local/apache2/htdocs
+    networks:
+      - webnet
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+      restart_policy:
+        condition: any
+
+  haproxy:
+    image: haproxy:latest
+    ports:
+      - "8083:80"
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    networks:
+      - webnet
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+      restart_policy:
+        condition: any
+
+networks:
+  webnet:
+    driver: overlay
+    attachable: true
