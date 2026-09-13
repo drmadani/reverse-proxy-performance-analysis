@@ -1,6 +1,6 @@
 # reverse-proxy-performance-analysis
 
-*"Performance analysis of Apache, Nginx, and HAProxy web servers using gradual load testing and resource limiting scenarios in a Docker environment. This repository contains the configuration, testing scripts, and results for my final project (Tugas Akhir)."*
+Performance analysis of Apache, Nginx, and HAProxy web servers using gradual load testing and resource limiting scenarios in a Docker environment. This repository contains the configuration, testing scripts, and results for my final project.
 
 
 ## Topology
