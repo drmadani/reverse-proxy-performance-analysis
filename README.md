@@ -1,6 +1,7 @@
 # reverse-proxy-performance-analysis
 
-PERFORMANCE ANALYSIS OF NGINX, APACHE, AND HAPROXY AS REVERSE PROXIES USING STEP LOAD TESTING AND RESOURCE LIMITING IN DOCKER SWARM
+*"Performance analysis of Apache, Nginx, and HAProxy web servers using gradual load testing and resource limiting scenarios in a Docker environment. This repository contains the configuration, testing scripts, and results for my final project (Tugas Akhir)."*
+
 
 ## Topology
 - Ubuntu + Docker
