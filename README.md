@@ -20,3 +20,12 @@ Performance analysis of Apache, Nginx, and HAProxy web servers using gradual loa
 ## How to Run
 ```bash
 docker-compose up -d
+
+## Testing Scenarios
+
+All scenarios use [k6](https://k6.io/) running inside Docker (`grafana/k6`).
+
+### Scenario 1: Step Load Testing
+Ramps up from 100 to 1000 req/s to find breaking points.
+```bash
+cd scripts && ./run_scenario1.sh
